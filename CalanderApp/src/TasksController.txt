@@ -1,0 +1,56 @@
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class TasksController {
+    @FXML
+    private Button quitbtn;
+
+    
+    @FXML
+    private TextField workme;
+
+    private static final String[] WORDS = {"apple", "banana", "orange", "pear", "kiwi", "grape", "pineapple", "peach", "plum", "watermelon"};
+    private Timer timer;
+
+    public void startworkout() {
+        Random random = new Random();
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                quitScene();
+            }
+        }, 30 * 60 * 1000);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        while (true) {
+            String word = WORDS[random.nextInt(WORDS.length)];
+            stringBuilder.append(word).append(" ");
+            workme.setText("workme: " + stringBuilder.toString());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void quitScene() {
+        timer.cancel();
+        // Load new FXML scene here
+    }
+
+    @FXML
+    private void btnquitclicked(ActionEvent event) {
+        // Exit the scene
+        quitbtn.getScene().getWindow().hide();
+    }
+}

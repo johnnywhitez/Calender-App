@@ -1,0 +1,157 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+
+Connection connection = DriverManager.getConnection("jdbc:sqlite:/path/to/your/database.db");
+
+public class TodoController {
+
+    @FXML
+    private TextField addtodofield;
+    
+    @FXML
+    private TextField todolist1;
+    @FXML
+    private TextField todolist2;
+    @FXML
+    private TextField todolist3;
+    @FXML
+    private TextField todolist4;
+    @FXML
+    private TextField todolist5;
+    @FXML
+    private TextField todolist6;
+    @FXML
+    private TextField todolist7;
+    
+    @FXML
+    private Button addbtn;
+
+
+    @FXML
+    private Button addbtn2;
+
+    @FXML
+    private Button addbtn3;
+
+    @FXML
+    private Button addbtn4;
+
+    @FXML
+    private Button addbtn5;
+
+    @FXML
+    private Button addbtn6;
+
+    @FXML
+    private Button addbtn7;
+
+    @FXML
+    private Button quitbtn;
+
+    @FXML
+    private Button delbtn1;
+    
+    @FXML
+    private Button delbtn2;
+    
+    @FXML
+    private Button delbtn3;
+    
+    @FXML
+    private Button delbtn4;
+    
+    @FXML
+    private Button delbtn5;
+    
+    @FXML
+    private Button delbtn6;
+    
+    @FXML
+    private Button delbtn7;
+    
+    
+    @FXML
+    private void btnaddclicked(ActionEvent event) {
+        String todo = addtodofield.getText();
+        todolist1.appendText(todo + "\n");
+        addtodofield.clear();
+    }
+    @FXML
+    private void btnaddclicked2(ActionEvent event) {
+        String todo = addtodofield.getText();
+        todolist2.appendText(todo + "\n");
+        addtodofield.clear();
+    }    @FXML
+    private void btnaddclicked3(ActionEvent event) {
+        String todo = addtodofield.getText();
+        todolist3.appendText(todo + "\n");
+        addtodofield.clear();
+    }    @FXML
+    private void btnaddclicked4(ActionEvent event) {
+        String todo = addtodofield.getText();
+        todolist4.appendText(todo + "\n");
+        addtodofield.clear();
+    }    @FXML
+    private void btnaddclicked5(ActionEvent event) {
+        String todo = addtodofield.getText();
+        todolist5.appendText(todo + "\n");
+        addtodofield.clear();
+    }    @FXML
+    private void btnaddclicked6(ActionEvent event) {
+        String todo = addtodofield.getText();
+        todolist6.appendText(todo + "\n");
+        addtodofield.clear();
+    }    @FXML
+    private void btnaddclicked7(ActionEvent event) {
+        String todo = addtodofield.getText();
+        todolist7.appendText(todo + "\n");
+        addtodofield.clear();
+    }
+
+    @FXML
+    private void btndelclicked1() {
+        todolist1.clear();
+    }
+
+    @FXML
+    private void btndelclicked2() {
+        todolist2.clear();
+    }
+
+    @FXML
+    private void btndelclicked3() {
+        todolist3.clear();
+    }
+
+    @FXML
+    private void btndelclicked4() {
+        todolist4.clear();
+    }
+
+    @FXML
+    private void btndelclicked5() {
+        todolist5.clear();
+    }
+
+    @FXML
+    private void btndelclicked6() {
+        todolist6.clear();
+    }
+
+    @FXML
+    private void btndelclicked7() {
+        todolist7.clear();
+    }
+
+
+    @FXML
+    private void btnquitclicked(ActionEvent event) {
+        // Exit the scene
+        quitbtn.getScene().getWindow().hide();
+    }
+}

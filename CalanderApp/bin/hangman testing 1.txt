@@ -1,0 +1,67 @@
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+public class hangManGameController {
+
+    @FXML
+    private TextField letter;
+    
+    @FXML
+    private Button ok;
+    
+    @FXML
+    private TextField guessnum;
+    
+    @FXML
+    private TextField word;
+    
+    @FXML
+    private TextField congrats;
+
+    private hangManGameController game;
+
+    public void initialize() {
+        game = new hangManGameController();
+        guessnum.setText(Integer.toString(game.getGuessesLeft()));
+        word.setText(game.getMaskedWord());
+    }
+
+    private String getMaskedWord() {
+        return null;
+    }
+
+    private int getGuessesLeft() {
+        return 0;
+    }
+
+    @FXML
+    void btnokclicked() {
+        String letterGuess = letter.getText().toUpperCase();
+        if (letterGuess.length() == 1 && Character.isLetter(letterGuess.charAt(0))) {
+            boolean guessResult = game.guess(letterGuess.charAt(0));
+            guessnum.setText(Integer.toString(game.getGuessesLeft()));
+            word.setText(game.getMaskedWord());
+            if (game.isGameOver()) {
+                if (game.isGameWon()) {
+                    congrats.setText("Congratulations!");
+                } else {
+                    congrats.setText("Fail!");
+                }
+            }
+            letter.clear();
+        }
+    }
+
+    private boolean isGameWon() {
+        return false;
+    }
+
+    private boolean guess(char charAt) {
+        return false;
+    }
+
+    private boolean isGameOver() {
+        return false;
+    }
+}
